@@ -313,14 +313,16 @@
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/create_entry?email=%@@%@.com&password=%@&task_id=%i&hours=%g&date=%@&notes=%@",[entry.user company], [entry.user username], [entry.user company], [entry.user password], [entry.project taskID], [entry hours], date, note]];
                       
     NSData *webData = [NSData dataWithContentsOfURL:url];
-    if(webData) return YES;
+    if(webData){
+       return YES;
+    }
     else return NO; 
 }
 
 - (NSMutableDictionary *) getEntriesForProject:(TickProject *)project
 {
-     NSString *date = [[[NSDate date] description] substringToIndex:10];
-    
+  NSString *date = [[[NSDate date] description] substringToIndex:10];
+
   NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/entries?email=%@@%@.com&password=%@&start_date=%@&end_date=%@&project_id=%i",[self.user company], [self.user username], [self.user company], [self.user password], [project createdOn], date, [project projectID]]];
     
    
@@ -328,9 +330,15 @@
     NSData *webData = [NSData dataWithContentsOfURL:url];
     
       NSMutableDictionary *localDict = [[NSDictionary dictionaryWithXMLData:webData] mutableCopy];
-  
+    id object = [localDict objectForKey:@"entry"];
+    NSArray *entries = [[NSArray alloc] init];
+    if ([object isKindOfClass:[NSArray class]]) {
+        entries = [localDict objectForKey:@"entry"];
+    } else {
+        if (object) entries = @[object];
+    }
     
-    NSArray *entries = [localDict objectForKey:@"entry"];
+    
     int i = entries.count - 1;
     for(id item in entries) {
         if ([item isKindOfClass:[NSDictionary class]]){
@@ -338,9 +346,8 @@
             entry.ID = [[[item objectForKey:@"id"] objectForKey:@"__text"] intValue];
             entry.project = project;
             entry.note = [[item objectForKey:@"notes"] objectForKey:@"__text"];
-            NSString *date = [[item objectForKey:@"created_at"] objectForKey:@"__text"];
-            NSString *day = [date substringToIndex:16];
-            entry.dateCreated = day;
+           date = [[item objectForKey:@"date"] objectForKey:@"__text"];
+            entry.dateCreated = date;
             id hours  = [item objectForKey:@"hours"];
             if([hours isKindOfClass:[NSDictionary class]]) {
                 entry.hours = [[hours objectForKey:@"__text"] doubleValue];

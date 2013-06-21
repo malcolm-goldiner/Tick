@@ -161,7 +161,7 @@
         }
         
         [[segue destinationViewController] setTitle:[NSString stringWithFormat:@"%@",[sender textLabel].text]];
-        [[segue destinationViewController] setUser:self.user];
+        [[segue destinationViewController] setUser:fetcher.user];
     } else if ([[segue identifier] isEqualToString:@"todaySegue"]) {
         
             [self.thisApplication setNetworkActivityIndicatorVisible:YES];

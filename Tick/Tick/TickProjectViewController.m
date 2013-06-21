@@ -1,3 +1,4 @@
+
 //
 //  MHNYCTickProjectViewController.m
 //  Tick
@@ -91,7 +92,6 @@
     [self setEntriesList];
     self.thisApplication.networkActivityIndicatorVisible = FALSE;
     self.title = [NSString stringWithFormat:@"%@",[self.project name]];
-    [self setEntriesList];
 }
 
 - (void)didReceiveMemoryWarning
@@ -156,18 +156,19 @@
     newEntry.dateCreated = [[[NSDate date] description] substringToIndex:9];
     newEntry.note = [self.notesField text];
     TickDataFetcher *entryAdder = [[TickDataFetcher alloc] init];
+    entryAdder.user = self.user; 
     if([entryAdder createEntry:newEntry]){
         [self.notesField resignFirstResponder];
         [self textViewShouldEndEditing:self.notesField];
         [self.notesLabel resignFirstResponder];
         [self.notesField setHidden:YES];
-        
         [self.notesLabel setHidden:YES];
         [self.hoursField setHidden:YES];
         [self.submitEntry setHidden:YES];
         [self.createEntryButton setHidden:NO];
         [self.entriesTableView setHidden:NO];
         [self.statusLabel setHidden:YES];
+        self.user.entriesForProjectData = [entryAdder getEntriesForProject:self.project];
     } else {
         [self.statusLabel setText:@"Try Again"]; 
     }
