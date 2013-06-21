@@ -7,94 +7,165 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23D9F4891773E3C200E95E72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D9F4881773E3C200E95E72 /* UIKit.framework */; };
-		23D9F48B1773E3C200E95E72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D9F48A1773E3C200E95E72 /* Foundation.framework */; };
-		23D9F48D1773E3C200E95E72 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D9F48C1773E3C200E95E72 /* CoreGraphics.framework */; };
-		23D9F4931773E3C200E95E72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23D9F4911773E3C200E95E72 /* InfoPlist.strings */; };
-		23D9F4951773E3C200E95E72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D9F4941773E3C200E95E72 /* main.m */; };
-		23D9F4991773E3C200E95E72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D9F4981773E3C200E95E72 /* AppDelegate.m */; };
-		23D9F49B1773E3C200E95E72 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 23D9F49A1773E3C200E95E72 /* Default.png */; };
-		23D9F49D1773E3C200E95E72 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23D9F49C1773E3C200E95E72 /* Default@2x.png */; };
-		23D9F49F1773E3C200E95E72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23D9F49E1773E3C200E95E72 /* Default-568h@2x.png */; };
+		2325BF8117714D1700D856C5 /* TickClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2325BF8017714D1700D856C5 /* TickClient.m */; };
+		2325BF8417714E2800D856C5 /* TickClientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2325BF8317714E2700D856C5 /* TickClientListViewController.m */; };
+		23285FE417656AB100628F59 /* TickLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23285FE317656AB100628F59 /* TickLoginViewController.m */; };
+		23285FE717656C6C00628F59 /* TickUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 23285FE617656C6C00628F59 /* TickUser.m */; };
+		235C41B4176B9E4E003560FE /* TickEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 235C41B3176B9E4E003560FE /* TickEntry.m */; };
+		23ABB42F1772C34500830FD7 /* TickTodaysEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23ABB42E1772C34500830FD7 /* TickTodaysEntriesViewController.m */; };
+		23D464851768FDAE00C144D5 /* TickProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D464841768FDAE00C144D5 /* TickProject.m */; };
+		23D67E2C177012E40004A7DC /* TickEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D67E2B177012E40004A7DC /* TickEntryViewController.m */; };
+		23EB591A175E55ED002788B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EB5919175E55ED002788B4 /* UIKit.framework */; };
+		23EB591C175E55ED002788B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EB591B175E55ED002788B4 /* Foundation.framework */; };
+		23EB591E175E55ED002788B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EB591D175E55ED002788B4 /* CoreGraphics.framework */; };
+		23EB5924175E55ED002788B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23EB5922175E55ED002788B4 /* InfoPlist.strings */; };
+		23EB5926175E55ED002788B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EB5925175E55ED002788B4 /* main.m */; };
+		23EB592A175E55ED002788B4 /* MHNYCTickAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EB5929175E55ED002788B4 /* MHNYCTickAppDelegate.m */; };
+		23EB592C175E55ED002788B4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EB592B175E55ED002788B4 /* Default.png */; };
+		23EB592E175E55ED002788B4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EB592D175E55ED002788B4 /* Default@2x.png */; };
+		23EB5930175E55ED002788B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EB592F175E55ED002788B4 /* Default-568h@2x.png */; };
+		23EB5933175E55ED002788B4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EB5931175E55ED002788B4 /* MainStoryboard.storyboard */; };
+		23EB5936175E55ED002788B4 /* TickProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EB5935175E55ED002788B4 /* TickProjectListViewController.m */; };
+		23EB5939175E55ED002788B4 /* TickProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EB5938175E55ED002788B4 /* TickProjectViewController.m */; };
+		23EB5962175E55FC002788B4 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EB5956175E55FC002788B4 /* XMLDictionary.m */; };
+		23EB5969175E58FF002788B4 /* TickDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EB5968175E58FF002788B4 /* TickDataFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		23D9F4851773E3C200E95E72 /* Tick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tick.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		23D9F4881773E3C200E95E72 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		23D9F48A1773E3C200E95E72 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		23D9F48C1773E3C200E95E72 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		23D9F4901773E3C200E95E72 /* Tick-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tick-Info.plist"; sourceTree = "<group>"; };
-		23D9F4921773E3C200E95E72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		23D9F4941773E3C200E95E72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		23D9F4961773E3C200E95E72 /* Tick-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tick-Prefix.pch"; sourceTree = "<group>"; };
-		23D9F4971773E3C200E95E72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		23D9F4981773E3C200E95E72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		23D9F49A1773E3C200E95E72 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		23D9F49C1773E3C200E95E72 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		23D9F49E1773E3C200E95E72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2325BF7F17714D1600D856C5 /* TickClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TickClient.h; sourceTree = "<group>"; };
+		2325BF8017714D1700D856C5 /* TickClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TickClient.m; sourceTree = "<group>"; };
+		2325BF8217714E2700D856C5 /* TickClientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TickClientListViewController.h; sourceTree = "<group>"; };
+		2325BF8317714E2700D856C5 /* TickClientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TickClientListViewController.m; sourceTree = "<group>"; };
+		23285FE217656AB100628F59 /* TickLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TickLoginViewController.h; sourceTree = "<group>"; };
+		23285FE317656AB100628F59 /* TickLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TickLoginViewController.m; sourceTree = "<group>"; };
+		23285FE517656C6C00628F59 /* TickUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TickUser.h; sourceTree = "<group>"; };
+		23285FE617656C6C00628F59 /* TickUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TickUser.m; sourceTree = "<group>"; };
+		235C41B2176B9E4E003560FE /* TickEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TickEntry.h; sourceTree = "<group>"; };
+		235C41B3176B9E4E003560FE /* TickEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TickEntry.m; sourceTree = "<group>"; };
+		23ABB42D1772C34500830FD7 /* TickTodaysEntriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TickTodaysEntriesViewController.h; sourceTree = "<group>"; };
+		23ABB42E1772C34500830FD7 /* TickTodaysEntriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TickTodaysEntriesViewController.m; sourceTree = "<group>"; };
+		23D464831768FDAE00C144D5 /* TickProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TickProject.h; sourceTree = "<group>"; };
+		23D464841768FDAE00C144D5 /* TickProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TickProject.m; sourceTree = "<group>"; };
+		23D67E2A177012E40004A7DC /* TickEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TickEntryViewController.h; sourceTree = "<group>"; };
+		23D67E2B177012E40004A7DC /* TickEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TickEntryViewController.m; sourceTree = "<group>"; };
+		23EB5916175E55ED002788B4 /* Tick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23EB5919175E55ED002788B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		23EB591B175E55ED002788B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		23EB591D175E55ED002788B4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		23EB5921175E55ED002788B4 /* Tick-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tick-Info.plist"; sourceTree = "<group>"; };
+		23EB5923175E55ED002788B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		23EB5925175E55ED002788B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		23EB5927175E55ED002788B4 /* Tick-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tick-Prefix.pch"; sourceTree = "<group>"; };
+		23EB5928175E55ED002788B4 /* MHNYCTickAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHNYCTickAppDelegate.h; sourceTree = "<group>"; };
+		23EB5929175E55ED002788B4 /* MHNYCTickAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHNYCTickAppDelegate.m; sourceTree = "<group>"; };
+		23EB592B175E55ED002788B4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		23EB592D175E55ED002788B4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		23EB592F175E55ED002788B4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		23EB5932175E55ED002788B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		23EB5934175E55ED002788B4 /* TickProjectListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TickProjectListViewController.h; sourceTree = "<group>"; };
+		23EB5935175E55ED002788B4 /* TickProjectListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TickProjectListViewController.m; sourceTree = "<group>"; };
+		23EB5937175E55ED002788B4 /* TickProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TickProjectViewController.h; sourceTree = "<group>"; };
+		23EB5938175E55ED002788B4 /* TickProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TickProjectViewController.m; sourceTree = "<group>"; };
+		23EB5955175E55FC002788B4 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLDictionary.h; path = "../XMLDictionary-master/XMLDictionary/XMLDictionary.h"; sourceTree = "<group>"; };
+		23EB5956175E55FC002788B4 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLDictionary.m; path = "../XMLDictionary-master/XMLDictionary/XMLDictionary.m"; sourceTree = "<group>"; };
+		23EB5967175E58FF002788B4 /* TickDataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TickDataFetcher.h; sourceTree = "<group>"; };
+		23EB5968175E58FF002788B4 /* TickDataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TickDataFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		23D9F4821773E3C200E95E72 /* Frameworks */ = {
+		23EB5913175E55ED002788B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23D9F4891773E3C200E95E72 /* UIKit.framework in Frameworks */,
-				23D9F48B1773E3C200E95E72 /* Foundation.framework in Frameworks */,
-				23D9F48D1773E3C200E95E72 /* CoreGraphics.framework in Frameworks */,
+				23EB591A175E55ED002788B4 /* UIKit.framework in Frameworks */,
+				23EB591C175E55ED002788B4 /* Foundation.framework in Frameworks */,
+				23EB591E175E55ED002788B4 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		23D9F47C1773E3C200E95E72 = {
+		23ABB42C1772883300830FD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				23D9F48E1773E3C200E95E72 /* Tick */,
-				23D9F4871773E3C200E95E72 /* Frameworks */,
-				23D9F4861773E3C200E95E72 /* Products */,
+				235C41B2176B9E4E003560FE /* TickEntry.h */,
+				235C41B3176B9E4E003560FE /* TickEntry.m */,
+				23285FE517656C6C00628F59 /* TickUser.h */,
+				23285FE617656C6C00628F59 /* TickUser.m */,
+				23EB5967175E58FF002788B4 /* TickDataFetcher.h */,
+				23EB5968175E58FF002788B4 /* TickDataFetcher.m */,
+				2325BF7F17714D1600D856C5 /* TickClient.h */,
+				2325BF8017714D1700D856C5 /* TickClient.m */,
+				23D464831768FDAE00C144D5 /* TickProject.h */,
+				23D464841768FDAE00C144D5 /* TickProject.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		23EB590D175E55ED002788B4 = {
+			isa = PBXGroup;
+			children = (
+				23EB591F175E55ED002788B4 /* Tick */,
+				23EB5918175E55ED002788B4 /* Frameworks */,
+				23EB5917175E55ED002788B4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		23D9F4861773E3C200E95E72 /* Products */ = {
+		23EB5917175E55ED002788B4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23D9F4851773E3C200E95E72 /* Tick.app */,
+				23EB5916175E55ED002788B4 /* Tick.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		23D9F4871773E3C200E95E72 /* Frameworks */ = {
+		23EB5918175E55ED002788B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				23D9F4881773E3C200E95E72 /* UIKit.framework */,
-				23D9F48A1773E3C200E95E72 /* Foundation.framework */,
-				23D9F48C1773E3C200E95E72 /* CoreGraphics.framework */,
+				23EB5919175E55ED002788B4 /* UIKit.framework */,
+				23EB591B175E55ED002788B4 /* Foundation.framework */,
+				23EB591D175E55ED002788B4 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		23D9F48E1773E3C200E95E72 /* Tick */ = {
+		23EB591F175E55ED002788B4 /* Tick */ = {
 			isa = PBXGroup;
 			children = (
-				23D9F4971773E3C200E95E72 /* AppDelegate.h */,
-				23D9F4981773E3C200E95E72 /* AppDelegate.m */,
-				23D9F48F1773E3C200E95E72 /* Supporting Files */,
+				23EB5931175E55ED002788B4 /* MainStoryboard.storyboard */,
+				23285FE217656AB100628F59 /* TickLoginViewController.h */,
+				23285FE317656AB100628F59 /* TickLoginViewController.m */,
+				2325BF8217714E2700D856C5 /* TickClientListViewController.h */,
+				2325BF8317714E2700D856C5 /* TickClientListViewController.m */,
+				23EB5934175E55ED002788B4 /* TickProjectListViewController.h */,
+				23EB5935175E55ED002788B4 /* TickProjectListViewController.m */,
+				23EB5937175E55ED002788B4 /* TickProjectViewController.h */,
+				23EB5938175E55ED002788B4 /* TickProjectViewController.m */,
+				23D67E2A177012E40004A7DC /* TickEntryViewController.h */,
+				23D67E2B177012E40004A7DC /* TickEntryViewController.m */,
+				23ABB42D1772C34500830FD7 /* TickTodaysEntriesViewController.h */,
+				23ABB42E1772C34500830FD7 /* TickTodaysEntriesViewController.m */,
+				23ABB42C1772883300830FD7 /* Model */,
+				23EB5920175E55ED002788B4 /* Supporting Files */,
 			);
 			path = Tick;
 			sourceTree = "<group>";
 		};
-		23D9F48F1773E3C200E95E72 /* Supporting Files */ = {
+		23EB5920175E55ED002788B4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				23D9F4901773E3C200E95E72 /* Tick-Info.plist */,
-				23D9F4911773E3C200E95E72 /* InfoPlist.strings */,
-				23D9F4941773E3C200E95E72 /* main.m */,
-				23D9F4961773E3C200E95E72 /* Tick-Prefix.pch */,
-				23D9F49A1773E3C200E95E72 /* Default.png */,
-				23D9F49C1773E3C200E95E72 /* Default@2x.png */,
-				23D9F49E1773E3C200E95E72 /* Default-568h@2x.png */,
+				23EB5955175E55FC002788B4 /* XMLDictionary.h */,
+				23EB5956175E55FC002788B4 /* XMLDictionary.m */,
+				23EB5928175E55ED002788B4 /* MHNYCTickAppDelegate.h */,
+				23EB5929175E55ED002788B4 /* MHNYCTickAppDelegate.m */,
+				23EB5921175E55ED002788B4 /* Tick-Info.plist */,
+				23EB5922175E55ED002788B4 /* InfoPlist.strings */,
+				23EB5925175E55ED002788B4 /* main.m */,
+				23EB5927175E55ED002788B4 /* Tick-Prefix.pch */,
+				23EB592B175E55ED002788B4 /* Default.png */,
+				23EB592D175E55ED002788B4 /* Default@2x.png */,
+				23EB592F175E55ED002788B4 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -102,13 +173,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		23D9F4841773E3C200E95E72 /* Tick */ = {
+		23EB5915175E55ED002788B4 /* Tick */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23D9F4A21773E3C200E95E72 /* Build configuration list for PBXNativeTarget "Tick" */;
+			buildConfigurationList = 23EB593C175E55ED002788B4 /* Build configuration list for PBXNativeTarget "Tick" */;
 			buildPhases = (
-				23D9F4811773E3C200E95E72 /* Sources */,
-				23D9F4821773E3C200E95E72 /* Frameworks */,
-				23D9F4831773E3C200E95E72 /* Resources */,
+				23EB5912175E55ED002788B4 /* Sources */,
+				23EB5913175E55ED002788B4 /* Frameworks */,
+				23EB5914175E55ED002788B4 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -116,74 +187,96 @@
 			);
 			name = Tick;
 			productName = Tick;
-			productReference = 23D9F4851773E3C200E95E72 /* Tick.app */;
+			productReference = 23EB5916175E55ED002788B4 /* Tick.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		23D9F47D1773E3C200E95E72 /* Project object */ = {
+		23EB590E175E55ED002788B4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MHYNCTick;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Mac Help NYC";
 			};
-			buildConfigurationList = 23D9F4801773E3C200E95E72 /* Build configuration list for PBXProject "Tick" */;
+			buildConfigurationList = 23EB5911175E55ED002788B4 /* Build configuration list for PBXProject "Tick" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 23D9F47C1773E3C200E95E72;
-			productRefGroup = 23D9F4861773E3C200E95E72 /* Products */;
+			mainGroup = 23EB590D175E55ED002788B4;
+			productRefGroup = 23EB5917175E55ED002788B4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				23D9F4841773E3C200E95E72 /* Tick */,
+				23EB5915175E55ED002788B4 /* Tick */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		23D9F4831773E3C200E95E72 /* Resources */ = {
+		23EB5914175E55ED002788B4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23D9F4931773E3C200E95E72 /* InfoPlist.strings in Resources */,
-				23D9F49B1773E3C200E95E72 /* Default.png in Resources */,
-				23D9F49D1773E3C200E95E72 /* Default@2x.png in Resources */,
-				23D9F49F1773E3C200E95E72 /* Default-568h@2x.png in Resources */,
+				23EB5924175E55ED002788B4 /* InfoPlist.strings in Resources */,
+				23EB592C175E55ED002788B4 /* Default.png in Resources */,
+				23EB592E175E55ED002788B4 /* Default@2x.png in Resources */,
+				23EB5930175E55ED002788B4 /* Default-568h@2x.png in Resources */,
+				23EB5933175E55ED002788B4 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		23D9F4811773E3C200E95E72 /* Sources */ = {
+		23EB5912175E55ED002788B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23D9F4951773E3C200E95E72 /* main.m in Sources */,
-				23D9F4991773E3C200E95E72 /* AppDelegate.m in Sources */,
+				23EB5926175E55ED002788B4 /* main.m in Sources */,
+				23EB592A175E55ED002788B4 /* MHNYCTickAppDelegate.m in Sources */,
+				23EB5936175E55ED002788B4 /* TickProjectListViewController.m in Sources */,
+				23EB5939175E55ED002788B4 /* TickProjectViewController.m in Sources */,
+				23EB5962175E55FC002788B4 /* XMLDictionary.m in Sources */,
+				23EB5969175E58FF002788B4 /* TickDataFetcher.m in Sources */,
+				23285FE417656AB100628F59 /* TickLoginViewController.m in Sources */,
+				23285FE717656C6C00628F59 /* TickUser.m in Sources */,
+				23D464851768FDAE00C144D5 /* TickProject.m in Sources */,
+				235C41B4176B9E4E003560FE /* TickEntry.m in Sources */,
+				23D67E2C177012E40004A7DC /* TickEntryViewController.m in Sources */,
+				2325BF8117714D1700D856C5 /* TickClient.m in Sources */,
+				2325BF8417714E2800D856C5 /* TickClientListViewController.m in Sources */,
+				23ABB42F1772C34500830FD7 /* TickTodaysEntriesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		23D9F4911773E3C200E95E72 /* InfoPlist.strings */ = {
+		23EB5922175E55ED002788B4 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				23D9F4921773E3C200E95E72 /* en */,
+				23EB5923175E55ED002788B4 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		23EB5931175E55ED002788B4 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23EB5932175E55ED002788B4 /* en */,
+			);
+			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		23D9F4A01773E3C200E95E72 /* Debug */ = {
+		23EB593A175E55ED002788B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -214,7 +307,7 @@
 			};
 			name = Debug;
 		};
-		23D9F4A11773E3C200E95E72 /* Release */ = {
+		23EB593B175E55ED002788B4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -239,7 +332,7 @@
 			};
 			name = Release;
 		};
-		23D9F4A31773E3C200E95E72 /* Debug */ = {
+		23EB593D175E55ED002788B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -250,7 +343,7 @@
 			};
 			name = Debug;
 		};
-		23D9F4A41773E3C200E95E72 /* Release */ = {
+		23EB593E175E55ED002788B4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -264,24 +357,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		23D9F4801773E3C200E95E72 /* Build configuration list for PBXProject "Tick" */ = {
+		23EB5911175E55ED002788B4 /* Build configuration list for PBXProject "Tick" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				23D9F4A01773E3C200E95E72 /* Debug */,
-				23D9F4A11773E3C200E95E72 /* Release */,
+				23EB593A175E55ED002788B4 /* Debug */,
+				23EB593B175E55ED002788B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		23D9F4A21773E3C200E95E72 /* Build configuration list for PBXNativeTarget "Tick" */ = {
+		23EB593C175E55ED002788B4 /* Build configuration list for PBXNativeTarget "Tick" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				23D9F4A31773E3C200E95E72 /* Debug */,
-				23D9F4A41773E3C200E95E72 /* Release */,
+				23EB593D175E55ED002788B4 /* Debug */,
+				23EB593E175E55ED002788B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 23D9F47D1773E3C200E95E72 /* Project object */;
+	rootObject = 23EB590E175E55ED002788B4 /* Project object */;
 }
