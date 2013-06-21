@@ -67,8 +67,13 @@
     [self.thisApplication setNetworkActivityIndicatorVisible:YES];
     TickDataFetcher *updated = [[TickDataFetcher alloc] init];
     [updated setUser:self.user];
-    self.entry.hours = [self.updatedHoursField.text doubleValue];
-    self.entry.note =self.updatedNotesField.text;    TickEntry *newEntry = [updated updateEntry:self.entry];
+
+    
+    TickEntry *newEntry = [[TickEntry alloc] init];
+    newEntry.hours = [self.updatedHoursField.text doubleValue];
+    newEntry.note =self.updatedNotesField.text;
+    newEntry.ID = self.entry.ID;
+    newEntry = [updated updateEntry:newEntry]; 
     if (newEntry){
         sender.hidden = YES;
         self.notesLabel.hidden = YES;
@@ -89,7 +94,9 @@
 
 - (IBAction)updateEntryPressed:(UIButton *)sender {
     sender.hidden = YES;
-    self.notesLabel.hidden = NO; 
+    self.notesLabel.hidden = NO;
+    self.updatedHoursField.text = [NSString stringWithFormat:@"%g",self.entry.hours];
+    self.updatedNotesField.text = self.entry.note;
     self.updatedHoursField.hidden = NO;
     self.updatedNotesField.hidden = NO;
     self.submitUpdatedButton.hidden = NO;
@@ -115,7 +122,6 @@
 - (void) textViewDidBeginEditing:(UITextView *)textView
 {
     self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y/3.00);
-    if ([textView hasText]) [textView setText:@""];
 }
 
 
@@ -129,7 +135,6 @@
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     self.view.center = self.originalCenter;
-    [self setText];
     
 }
 

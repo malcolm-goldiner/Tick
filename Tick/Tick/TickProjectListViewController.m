@@ -91,6 +91,7 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     self.thisApplication.networkActivityIndicatorVisible = TRUE;
+    [self setprojectsList];
     self.title = [NSString stringWithFormat:@"%@ %@'s Projects",[self.user firstName],[self.user lastName]]; 
 }
 
@@ -150,9 +151,15 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         TickDataFetcher *fetcher = [[TickDataFetcher alloc] init];
         fetcher.user = self.user;
-        if (self.searching) self.user.entriesForProjectData = [fetcher getEntriesForProject:[self.user.resultsOfLastSearch objectForKey:@(indexPath.row)]];
-        else self.user.entriesForProjectData = [fetcher getEntriesForProject:[self.user.projectsForClientData objectForKey:@(indexPath.row)]];
-        [[segue destinationViewController] setProject:[self.user.projectsForClientData objectForKey:@(indexPath.row)]];
+        if (self.searching) {
+            self.user.entriesForProjectData = [fetcher getEntriesForProject:[self.user.resultsOfLastSearch objectForKey:@(indexPath.row)]];
+            [[segue destinationViewController] setProject:[self.user.resultsOfLastSearch objectForKey:@(indexPath.row)]];
+        }
+        else{
+            self.user.entriesForProjectData = [fetcher getEntriesForProject:[self.user.projectsForClientData objectForKey:@(indexPath.row)]];
+            [[segue destinationViewController] setProject:[self.user.projectsForClientData objectForKey:@(indexPath.row)]];
+        }
+        
         [[segue destinationViewController] setTitle:[NSString stringWithFormat:@"%@",[sender textLabel].text]];
         [[segue destinationViewController] setUser:self.user];
     } else if ([[segue identifier] isEqualToString:@"todaySegue"]) {

@@ -158,7 +158,7 @@
     NSMutableDictionary *searchResults = [[NSMutableDictionary alloc] init];
     int i = 0; 
     for (TickProject *project in projects) {
-        NSRange range = [[project name] rangeOfString:name];
+        NSRange range = [[[project name] uppercaseString] rangeOfString:[name uppercaseString]];
         if(range.length == 0) NSLog(@"not there");
         else{
             [searchResults setObject:project forKey:@(i)];
@@ -177,7 +177,7 @@
     NSMutableDictionary *searchResults = [[NSMutableDictionary alloc] init];
     int i = 0;
     for (TickClient *client in clients) {
-        NSRange range = [[client name] rangeOfString:name];
+        NSRange range = [[[client name]uppercaseString] rangeOfString:[name uppercaseString]];
         if(range.length == 0) NSLog(@"not there");
         else{
             [searchResults setObject:client forKey:@(i)];
@@ -201,7 +201,7 @@
     NSMutableDictionary *searchResults = [[NSMutableDictionary alloc] init];
     int i = 0;
     for (TickEntry *entry in entries) {
-        NSRange range = [[entry note] rangeOfString:note];
+        NSRange range = [[[entry note] uppercaseString] rangeOfString: [note uppercaseString]];
         if(range.length == 0) NSLog(@"not there");
         else{
             [searchResults setObject:entry forKey:@(i)];
@@ -300,9 +300,17 @@
 
 - (BOOL) createEntry:(TickEntry *)entry;
 {
-      NSString *date = [[[NSDate date] description] substringToIndex:10];
+    NSString *note = [entry note];
+    NSRange space = [note rangeOfString:@" "];
+    while (space.length != 0) {
+        note = [NSString stringWithFormat:@"%@%@%@",[note substringToIndex:space.location],@"+",[note substringFromIndex:space.location+space.length]];
+        space = [note rangeOfString:@" "];
+    }
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/create_entry?email=%@@%@.com&password=%@&task_id=%i&hours=%g&date=%@&notes=%@",[entry.user company], [entry.user username], [entry.user company], [entry.user password], [entry.project taskID], [entry hours], date, [entry note]]];
+    
+    NSString *date = [[[NSDate date] description] substringToIndex:10];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/create_entry?email=%@@%@.com&password=%@&task_id=%i&hours=%g&date=%@&notes=%@",[entry.user company], [entry.user username], [entry.user company], [entry.user password], [entry.project taskID], [entry hours], date, note]];
                       
     NSData *webData = [NSData dataWithContentsOfURL:url];
     if(webData) return YES;
@@ -401,14 +409,21 @@
 
 - (TickEntry *) updateEntry:(TickEntry *)entry
 {
-    NSString *url = [NSString stringWithFormat:@"https://%@.tickspot.com/api/update_entry?email=%@@%@.com&password=%@&id=%i&hours=%g&notes=%@",[self.user company], [self.user username], [self.user company], [self.user password], [entry ID], [entry hours], [entry note]];
-    NSMutableURLRequest *Request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-	[Request setHTTPMethod:@"POST"];
-    NSHTTPURLResponse *Response;
-	NSError *Error = nil;
-    NSData *Data = [NSURLConnection sendSynchronousRequest:Request returningResponse:&Response error:&Error];
+    
+    NSString *note = [entry note];
+    NSRange space = [note rangeOfString:@" "];
+    while (space.length != 0) {
+        note = [NSString stringWithFormat:@"%@%@%@",[note substringToIndex:space.location],@"+",[note substringFromIndex:space.location+space.length]];
+         space = [note rangeOfString:@" "];
+    }
+    
+    NSString *url = [NSString stringWithFormat:@"https://%@.tickspot.com/api/update_entry?email=%@@%@.com&password=%@&id=%i&notes=%@&hours=%g",[self.user company], [self.user username], [self.user company], [self.user password], [entry ID],note,[entry hours]];
+  
+	
+    NSData *Data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
     if(Data) {
         NSDictionary *newEntries = [self getEntriesForProject:entry.project];
+        
         for (TickEntry *newEntry in [newEntries allValues]) {
             if([newEntry ID] == [entry ID]) return newEntry;
         }
