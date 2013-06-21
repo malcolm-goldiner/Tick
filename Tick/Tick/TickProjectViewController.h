@@ -1,5 +1,5 @@
 //
-//  main.m
+//  MHNYCTickProjectViewController.h
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/4/13.
@@ -24,12 +24,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TickUser.h"
 
-#import "MHNYCTickAppDelegate.h"
+@interface TickProjectViewController : UIViewController  <UITableViewDelegate, UITableViewDataSource>
 
-int main(int argc, char *argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
-    }
-}
+@property (strong, nonatomic) id project;
+
+@property (weak, nonatomic) IBOutlet UITextView *detailDescriptionView;
+@property (strong, nonatomic) TickUser *user;
+@property (strong, nonatomic) NSMutableDictionary *TickData;
+@property (weak, nonatomic) IBOutlet UITextField *hoursField;
+@property (weak, nonatomic) IBOutlet UIButton *createEntryButton;
+@property (weak, nonatomic) IBOutlet UITextView *notesField;
+@property (weak, nonatomic) IBOutlet UIButton *submitEntry;
+@property (weak, nonatomic) IBOutlet UILabel *notesLabel;
+@property (weak, nonatomic) IBOutlet UITableView *entriesTableView;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+
+
+@end

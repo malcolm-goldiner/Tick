@@ -1,8 +1,8 @@
 //
-//  main.m
+//  MHNYCTickClient.h
 //  Tick
 //
-//  Created by Malcolm Goldiner on 6/4/13.
+//  Created by Malcolm Goldiner on 6/18/13.
 //
 //  This software is provided 'as-is', without any express or implied
 //  warranty.  In no event will the authors be held liable for any damages
@@ -23,13 +23,11 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-#import "MHNYCTickAppDelegate.h"
+@interface TickClient : NSObject
 
-int main(int argc, char *argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
-    }
-}
+@property (strong, nonatomic) NSString *name;
+@property (nonatomic) int clientID;
+
+@end

@@ -1,8 +1,8 @@
 //
-//  main.m
+//  MHNYCTickEntry.m
 //  Tick
 //
-//  Created by Malcolm Goldiner on 6/4/13.
+//  Created by Malcolm Goldiner on 6/14/13.
 //
 //  This software is provided 'as-is', without any express or implied
 //  warranty.  In no event will the authors be held liable for any damages
@@ -23,13 +23,24 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
-#import <UIKit/UIKit.h>
+#import "TickEntry.h"
 
-#import "MHNYCTickAppDelegate.h"
+@implementation TickEntry
 
-int main(int argc, char *argv[])
+
+- (NSString *) description
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
+    double hours = [self hours];
+    int minutes = 0; 
+    int hrs = (int)hours;
+    if (hrs != hours){
+        minutes = 60 * (hours - hrs);
     }
+    if (minutes == 0 )return [NSString stringWithFormat:@"%@ - %g hours", [self dateCreated], [self hours]];
+    else if (hrs == 0) return [NSString stringWithFormat:@"%@ - %i minutes", [self dateCreated], minutes];
+    else return [NSString stringWithFormat:@"%@ - %i hrs %i mins", [self dateCreated], hrs, minutes];
+
 }
+
+
+@end

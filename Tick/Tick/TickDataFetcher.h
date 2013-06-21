@@ -1,5 +1,5 @@
 //
-//  main.m
+//  DataFetcher.h
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/4/13.
@@ -23,13 +23,29 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
-#import <UIKit/UIKit.h>
+#import "XMLDictionary.h"
+#import "TickUser.h"
+#import "TickEntry.h"
+#import "TickClient.h"
 
-#import "MHNYCTickAppDelegate.h"
+@interface TickDataFetcher : NSObject
 
-int main(int argc, char *argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
-    }
-}
+@property (strong,nonatomic) TickUser *user;
+
+
+- (NSMutableDictionary *) getProjects;
+- (NSString *) getUserFullName;
+- (BOOL) createEntry:(TickEntry *)entry;
+- (NSMutableDictionary *) getEntriesForProject:(TickProject *)project;
+- (NSMutableDictionary *) getEntriesForToday;
+- (NSMutableDictionary *) getClients;
+- (NSMutableDictionary *) getProjectsForClient:(TickClient *)client;
+- (TickEntry *) updateEntry:(TickEntry *)entry;
+- (NSMutableDictionary *) searchForProjectWithName:(NSString *)prefix;
+- (NSMutableDictionary *) searchForClientWithName:(NSString *)prefix;
+- (NSMutableDictionary *) searchForEntryWithNote:(NSString *)note;
+
+
+
+
+@end

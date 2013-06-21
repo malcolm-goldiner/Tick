@@ -1,8 +1,8 @@
 //
-//  main.m
+//  MHNYCTickUser.h
 //  Tick
 //
-//  Created by Malcolm Goldiner on 6/4/13.
+//  Created by Malcolm Goldiner on 6/9/13.
 //
 //  This software is provided 'as-is', without any express or implied
 //  warranty.  In no event will the authors be held liable for any damages
@@ -23,13 +23,24 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-#import "MHNYCTickAppDelegate.h"
+@interface TickUser : NSObject
 
-int main(int argc, char *argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
-    }
-}
+
+@property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *firstName;
+@property (strong, nonatomic) NSString *lastName; 
+@property (strong, nonatomic) NSString *password;
+@property (strong, nonatomic) NSString *company;
+@property (strong, nonatomic) NSMutableDictionary *ProjectData;
+@property (strong, nonatomic) NSMutableDictionary *ClientData;
+@property (strong, nonatomic) NSMutableDictionary *entriesForProjectData;
+@property (strong, nonatomic) NSMutableDictionary *entriesForTodayData;
+@property (strong, nonatomic) NSMutableDictionary *resultsOfLastSearch; 
+
+@property (strong, nonatomic) NSMutableDictionary *projectsForClientData;
+
+@property (strong, nonatomic) NSString *fullName;
+
+@end

@@ -1,8 +1,9 @@
 //
-//  main.m
+//  MHNYCTickProject.h
 //  Tick
 //
-//  Created by Malcolm Goldiner on 6/4/13.
+//  Created by Malcolm Goldiner on 6/12/13.
+//  Copyright (c) 2013 Mac Help NYC. All rights reserved.
 //
 //  This software is provided 'as-is', without any express or implied
 //  warranty.  In no event will the authors be held liable for any damages
@@ -23,13 +24,15 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-#import "MHNYCTickAppDelegate.h"
+@interface TickProject : NSObject
 
-int main(int argc, char *argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
-    }
-}
+@property (strong, nonatomic) NSString *name;
+@property (nonatomic) double sumHours;
+@property (strong, nonatomic) NSString *clientName;
+@property (nonatomic) int taskID;
+@property (nonatomic, strong) NSString *createdOn;
+@property (nonatomic) int projectID; 
+
+@end

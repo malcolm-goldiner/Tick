@@ -1,8 +1,9 @@
 //
-//  main.m
+//  MHNYCTickClient.m
 //  Tick
 //
-//  Created by Malcolm Goldiner on 6/4/13.
+//  Created by Malcolm Goldiner on 6/18/13.
+//  Copyright (c) 2013 Mac Help NYC. All rights reserved.
 //
 //  This software is provided 'as-is', without any express or implied
 //  warranty.  In no event will the authors be held liable for any damages
@@ -23,13 +24,19 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
-#import <UIKit/UIKit.h>
+#import "TickClient.h"
 
-#import "MHNYCTickAppDelegate.h"
+@implementation TickClient
 
-int main(int argc, char *argv[])
+- (NSString *)description
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
-    }
+    return [self name]; 
 }
+
+- (NSComparisonResult) compare:(TickClient*)left
+{
+    return [[self name] caseInsensitiveCompare:[left name]];
+}
+
+
+@end

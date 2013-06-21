@@ -1,8 +1,8 @@
 //
-//  main.m
+//  MHYNCTickClientListViewViewController.h
 //  Tick
 //
-//  Created by Malcolm Goldiner on 6/4/13.
+//  Created by Malcolm Goldiner on 6/18/13.
 //
 //  This software is provided 'as-is', without any express or implied
 //  warranty.  In no event will the authors be held liable for any damages
@@ -24,12 +24,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TickClient.h"
+#import "TickUser.h"
+#import "TickDataFetcher.h"
 
-#import "MHNYCTickAppDelegate.h"
+@interface TickClientListViewController : UITableViewController
 
-int main(int argc, char *argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
-    }
-}
+@property (strong,nonatomic) TickUser *user;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@end

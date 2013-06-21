@@ -1,5 +1,5 @@
 //
-//  main.m
+//  MHNYCTickAppDelegate.h
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/4/13.
@@ -25,11 +25,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MHNYCTickAppDelegate.h"
+@interface MHNYCTickAppDelegate : UIResponder <UIApplicationDelegate>
 
-int main(int argc, char *argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
-    }
-}
+@property (strong, nonatomic) UIWindow *window;
+
+@end

@@ -1,8 +1,8 @@
 //
-//  main.m
+//  MHNYCEntryViewController.h
 //  Tick
 //
-//  Created by Malcolm Goldiner on 6/4/13.
+//  Created by Malcolm Goldiner on 6/18/13.
 //
 //  This software is provided 'as-is', without any express or implied
 //  warranty.  In no event will the authors be held liable for any damages
@@ -24,12 +24,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TickEntry.h"
+#import "TickUser.h"
 
-#import "MHNYCTickAppDelegate.h"
+@interface TickEntryViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) TickEntry *entry;
+@property (weak, nonatomic) IBOutlet UITextView *updatedNotesField;
+@property (weak, nonatomic) IBOutlet UITextField *updatedHoursField;
+@property (weak, nonatomic) IBOutlet UIButton *updateEntryButton;
+@property (weak, nonatomic) IBOutlet UIButton *submitUpdatedButton;
+@property (weak, nonatomic) IBOutlet UILabel *notesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (strong, nonatomic) TickUser *user;
 
-int main(int argc, char *argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
-    }
-}
+@end

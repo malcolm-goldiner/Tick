@@ -1,5 +1,5 @@
 //
-//  main.m
+//  MHNYCTickProjectListViewController.h
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/4/13.
@@ -24,12 +24,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TickUser.h"
+#import "TickDataFetcher.h"
 
-#import "MHNYCTickAppDelegate.h"
+@interface TickProjectListViewController : UITableViewController
 
-int main(int argc, char *argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
-    }
-}
+@property (strong, nonatomic) TickUser *user;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+
+@end
