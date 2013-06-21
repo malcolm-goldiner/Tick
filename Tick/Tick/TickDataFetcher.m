@@ -335,7 +335,8 @@
     if ([object isKindOfClass:[NSArray class]]) {
         entries = [localDict objectForKey:@"entry"];
     } else {
-        if (object) entries = @[object];
+        // verify that there is a singular entry in the dictionary rather than an array of entries
+        if ([object objectForKey:@"hours"]) entries = @[object];
     }
     
     
@@ -363,7 +364,7 @@
             }
         }
     }
-    if (entries)return localDict;
+    if (entries.count)return localDict;
     else return nil; 
 }
 
@@ -409,7 +410,7 @@
             }
         }
     }
-    if (entries)return localDict;
+    if (entries.count)return localDict;
     else return nil;
     
 }

@@ -83,6 +83,7 @@
     self.user.password = @"";
 }
 
+
 - (IBAction)usernameEntered:(UITextField *)sender {
     [self.user setUsername:sender.text];
 }
