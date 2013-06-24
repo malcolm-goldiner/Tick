@@ -43,7 +43,8 @@
 - (TickEntry *) updateEntry:(TickEntry *)entry;
 - (NSMutableDictionary *) searchForProjectWithName:(NSString *)prefix;
 - (NSMutableDictionary *) searchForClientWithName:(NSString *)prefix;
-- (NSMutableDictionary *) searchForEntryWithNote:(NSString *)note;
+- (NSMutableDictionary *) searchForEntryWithNote:(NSString *)note fromView:(NSString *)view;
+- (BOOL)credentialsAreCorrect; 
 
 
 

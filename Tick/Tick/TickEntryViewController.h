@@ -37,5 +37,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *notesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) TickUser *user;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end

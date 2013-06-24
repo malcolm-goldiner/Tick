@@ -39,34 +39,38 @@
 
 - (NSMutableDictionary *) getClients
 {
-    NSMutableDictionary *cleanDict = [[NSMutableDictionary alloc] init]; 
-    if(!self.user.ProjectData) self.user.ProjectData = [self getProjects];
-    NSMutableSet *projects = [[NSMutableSet alloc] init];
-    for (id project in [self.user.ProjectData allValues]){
-        [projects addObject:[project clientName]];
-        
-    }
     
-    int i = 0; 
-    for (id name in projects){
-        if ([name isKindOfClass:[NSString class]]){
-            TickClient *client = [[TickClient alloc] init];
-            client.name = name;
-            [cleanDict setObject:client forKey:@(i)];
-            i++;
+    if (!self.user.ClientData) {
+        NSMutableDictionary *cleanDict = [[NSMutableDictionary alloc] init];
+        if(!self.user.ProjectData) self.user.ProjectData = [self getProjects];
+        NSMutableSet *projects = [[NSMutableSet alloc] init];
+        for (id project in [self.user.ProjectData allValues]){
+            [projects addObject:[project clientName]];
             
         }
         
+        int i = 0;
+        for (id name in projects){
+            if ([name isKindOfClass:[NSString class]]){
+                TickClient *client = [[TickClient alloc] init];
+                client.name = name;
+                [cleanDict setObject:client forKey:@(i)];
+                i++;
+                
+            }
+            
+            
+        }
+        NSMutableArray *clients = [[[cleanDict allValues] sortedArrayUsingSelector:@selector(compare:)] mutableCopy];
+        [cleanDict removeAllObjects];
+        for(int i = 0; i < clients.count; i++) {
+            [cleanDict setObject:clients[i] forKey:@(i)];
+        }
         
-    }
-    NSMutableArray *clients = [[[cleanDict allValues] sortedArrayUsingSelector:@selector(compare:)] mutableCopy];
-    [cleanDict removeAllObjects];
-    for(int i = 0; i < clients.count; i++) {
-        [cleanDict setObject:clients[i] forKey:@(i)];
-    }
+        self.user.ClientData = cleanDict;
+        return cleanDict;
+    } else return self.user.ClientData;
     
-    self.user.ClientData = cleanDict;
-    return cleanDict;
 }
 
 
@@ -144,10 +148,7 @@
     for(int i = 0; i < projects.count; i++) {
         [cleanDict setObject:projects[i] forKey:@(i)];
     }
-   
-
     return cleanDict;
-    
 }
 
 
@@ -368,10 +369,27 @@
     else return nil; 
 }
 
+- (BOOL) credentialsAreCorrect
+{
+    [self getUserFullName];
+    [self getClients]; 
+    if(self.user.ClientData.count){
+        NSUserDefaults *current = [NSUserDefaults standardUserDefaults];
+        NSArray *userInfo = @[self.user.username, self.user.company, self.user.password];
+        [current setObject:userInfo forKey:@"Tick User"];
+        [current synchronize];
+         return YES;
+    }
+    else return NO;
+}
+
+
+
+
 - (NSMutableDictionary *) getEntriesForToday
 {
       NSString *date = [[[NSDate date] description] substringToIndex:10];
-    
+ 
     
       NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/entries?email=%@@%@.com&password=%@&start_date=%@&end_date=%@",[self.user company], [self.user username], [self.user company], [self.user password], date, date]];
     
@@ -380,9 +398,18 @@
     NSData *webData = [NSData dataWithContentsOfURL:url];
     
     NSMutableDictionary *localDict = [[NSDictionary dictionaryWithXMLData:webData] mutableCopy];
-    int i = 0;
-    
-    NSArray *entries = [localDict objectForKey:@"entry"];
+   
+    id object = [localDict objectForKey:@"entry"];
+    NSArray *entries = [[NSArray alloc] init];
+    if ([object isKindOfClass:[NSArray class]]) {
+        entries = [localDict objectForKey:@"entry"];
+    } else {
+        // verify that there is a singular entry in the dictionary rather than an array of entries
+        if ([object objectForKey:@"hours"]) entries = @[object];
+    }
+
+    int i = entries.count - 1;
+  
     for(id item in entries) {
         if([item isKindOfClass:[NSDictionary class]]){
             TickEntry *entry = [[TickEntry alloc] init];
@@ -403,7 +430,6 @@
             }
         }
        
-        
         for (id key in [localDict allKeys]){
             if (![[localDict objectForKey:key] isKindOfClass:[TickEntry class]])     {
                 [localDict removeObjectForKey:key];

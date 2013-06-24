@@ -31,5 +31,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *companyField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *atLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dotComLabel;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
 
 @end

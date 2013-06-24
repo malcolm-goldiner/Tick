@@ -66,6 +66,20 @@
     [self clearEnteredInfo];
     self.loadingLabel.hidden = YES;
      self.thisApplication.networkActivityIndicatorVisible = NO;
+    NSUserDefaults *current = [NSUserDefaults standardUserDefaults];
+    if ([current objectForKey:@"Tick User"]) {
+        NSArray *userInfo = [current objectForKey:@"Tick User"];
+        self.user.username = userInfo[0];
+        self.atLabel.hidden = YES;
+        self.dotComLabel.hidden = YES; 
+        self.user.company = userInfo[1];
+        self.user.password = userInfo[2];
+        self.usernameField.hidden = YES;
+        self.companyField.hidden = YES;
+        self.passwordField.hidden = YES;
+        self.loadingLabel.hidden = YES;
+        [self.loginButton setTitle:[NSString stringWithFormat:@"Login %@",[self.user username]] forState:UIControlStateNormal];
+    }
 }
 
 - (void)viewDidLayoutSubviews
@@ -100,7 +114,8 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    return [self credentialsAreCorrect];
+    self.checker.user = self.user; 
+    return [self.checker credentialsAreCorrect];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -116,7 +131,6 @@
 - (IBAction)loginPressed:(UIButton *)sender {
    
     if([self shouldPerformSegueWithIdentifier:@"loginSegue" sender:sender]){
-        sender.hidden = YES;
          self.loadingLabel.hidden = YES;
         [self.user setFullName:[self.checker getUserFullName]];
     } else {
@@ -134,15 +148,7 @@
 }
 
 
-- (BOOL) credentialsAreCorrect
-{
-    if ([self.passwordField.text isEqualToString:@"password"]) return NO;
-    [self.checker setUser:self.user];
-    [self.checker getUserFullName];
-    [self.user setClientData:[self.checker getClients]];
-    if(self.user.ClientData.count)return YES;
-    else return NO;
-}
+
 
 
 #pragma mark - Text Field
@@ -150,7 +156,6 @@
 // code from http://stackoverflow.com/questions/7952762/xcode-ios5-move-uiview-up-when-keyboard-appears
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    self.loginButton.hidden = NO; 
     if([textField isEqual:self.passwordField]){
         self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y/1.70);
         

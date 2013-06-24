@@ -95,6 +95,7 @@
 - (IBAction)updateEntryPressed:(UIButton *)sender {
     sender.hidden = YES;
     self.notesLabel.hidden = NO;
+    self.cancelButton.hidden = NO; 
     self.updatedHoursField.text = [NSString stringWithFormat:@"%g",self.entry.hours];
     self.updatedNotesField.text = self.entry.note;
     self.updatedHoursField.hidden = NO;
@@ -102,6 +103,18 @@
     self.submitUpdatedButton.hidden = NO;
     self.statusLabel.hidden = NO; 
     
+}
+
+- (IBAction)cancelPressed:(UIButton *)sender {
+    sender.hidden = YES;
+    [self.updatedHoursField resignFirstResponder];
+    [self.updatedNotesField resignFirstResponder];
+    self.notesLabel.hidden = YES;
+    self.updatedHoursField.hidden = YES;
+    self.updatedNotesField.hidden = YES;
+    self.submitUpdatedButton.hidden = YES;
+    self.statusLabel.hidden = YES;
+    self.updateEntryButton.hidden = NO; 
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,7 +125,7 @@
 
 - (void) setText
 {
-    NSString *entryText = [NSString stringWithFormat:@"Hours: %g \n Date: %@ \n Notes: %@", [self.entry hours], [self.entry dateCreated], [self.entry note]];
+    NSString *entryText = [NSString stringWithFormat:@"Hours: %g \nDate: %@ \nNotes: %@", [self.entry hours], [self.entry dateCreated], [self.entry note]];
     [self.textView setText:entryText];
     [self.textView reloadInputViews];
 }
@@ -121,7 +134,7 @@
 
 - (void) textViewDidBeginEditing:(UITextView *)textView
 {
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y/3.00);
+    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y/3.25);
 }
 
 
@@ -146,7 +159,7 @@
 // code from http://stackoverflow.com/questions/7952762/xcode-ios5-move-uiview-up-when-keyboard-appears
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y/2);
+    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y/3.00);
 }
 
 
@@ -159,6 +172,7 @@
         [self.updatedHoursField setHidden:YES];
         [self.submitUpdatedButton setHidden:YES];
         [self.notesLabel setHidden:YES];
+        self.cancelButton.hidden = YES; 
     }
     [self textFieldShouldReturn:textField];
     self.view.center = self.originalCenter;

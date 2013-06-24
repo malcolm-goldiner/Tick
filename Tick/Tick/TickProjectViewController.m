@@ -144,6 +144,7 @@
     [self.submitEntry setHidden:NO];
     [self.notesLabel setHidden:NO];
     [self.statusLabel setHidden:NO];
+    [self.cancelButton setHidden:NO];
 }
 
 
@@ -168,6 +169,7 @@
         [self.createEntryButton setHidden:NO];
         [self.entriesTableView setHidden:NO];
         [self.statusLabel setHidden:YES];
+        [self.cancelButton setHidden:YES];
         self.user.entriesForProjectData = [entryAdder getEntriesForProject:self.project];
     } else {
         [self.statusLabel setText:@"Try Again"]; 
@@ -178,14 +180,20 @@
     
 }
 
-#pragma mark - TextView
-
-- (void) textViewDidBeginEditing:(UITextView *)textView
-{
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y/2.85);
-      if ([textView hasText]) [textView setText:@""];
+- (IBAction)cancelPressed:(id)sender {
+    [self.hoursField resignFirstResponder];
+    [self.notesField resignFirstResponder];
+    [self.notesField setHidden:YES];
+    [self.notesLabel setHidden:YES];
+    [self.hoursField setHidden:YES];
+    [self.submitEntry setHidden:YES];
+    [self.createEntryButton setHidden:NO];
+    [self.entriesTableView setHidden:NO];
+    [self.statusLabel setHidden:YES];
+    [self.cancelButton setHidden:YES];
 }
 
+#pragma mark - TextView
 
 - (BOOL) textViewShouldEndEditing:(UITextView *)textView
 {
