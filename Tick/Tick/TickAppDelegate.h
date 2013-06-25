@@ -1,5 +1,5 @@
 //
-//  MHNYCTickAppDelegate.h
+//  TickAppDelegate.h
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/4/13.
@@ -25,7 +25,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MHNYCTickAppDelegate : UIResponder <UIApplicationDelegate>
+@interface TickAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

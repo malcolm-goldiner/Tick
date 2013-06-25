@@ -1,7 +1,6 @@
 
 //
-//  DataFetcher.m
-//  Tick
+//  TickDataFetcher.m
 //
 //  Created by Malcolm Goldiner on 6/4/13.
 //
@@ -39,14 +38,12 @@
 
 - (NSMutableDictionary *) getClients
 {
-    
-    if (!self.user.ClientData) {
+    if (!self.user.ClientData.count){
         NSMutableDictionary *cleanDict = [[NSMutableDictionary alloc] init];
-        if(!self.user.ProjectData) self.user.ProjectData = [self getProjects];
+        if (!self.user.ProjectData.count) self.user.ProjectData = [self getProjects];
         NSMutableSet *projects = [[NSMutableSet alloc] init];
         for (id project in [self.user.ProjectData allValues]){
             [projects addObject:[project clientName]];
-            
         }
         
         int i = 0;
@@ -69,7 +66,12 @@
         
         self.user.ClientData = cleanDict;
         return cleanDict;
-    } else return self.user.ClientData;
+    } else {
+        return self.user.ClientData; 
+    }
+   
+       
+   
     
 }
 
@@ -79,7 +81,7 @@
     NSMutableDictionary *localDict;
     int i = 0;
     NSMutableDictionary *cleanDict = [[NSMutableDictionary alloc] init];
-    if (!self.user.ProjectData){
+    if (self.user.ProjectData.count == 0){
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/projects?email=%@@%@.com&password=%@",[self.user company],[self.user username], [self.user company],[self.user password]]];
         
         NSData *webData = [NSData dataWithContentsOfURL:url];
@@ -154,21 +156,17 @@
 
 - (NSMutableDictionary *) searchForProjectWithName:(NSString *)name
 {
-    NSArray *projects = [[self.user projectsForClientData] allValues]
-    ;
+    NSArray *projects = [[self.user projectsForClientData] allValues];
     NSMutableDictionary *searchResults = [[NSMutableDictionary alloc] init];
     int i = 0; 
     for (TickProject *project in projects) {
         NSRange range = [[[project name] uppercaseString] rangeOfString:[name uppercaseString]];
-        if(range.length == 0) NSLog(@"not there");
-        else{
+        if (range.length != 0) {
             [searchResults setObject:project forKey:@(i)];
             i++;
         }
-       
     }
     return searchResults;
-    
 }
 
 - (NSMutableDictionary *) searchForClientWithName:(NSString *)name
@@ -179,12 +177,10 @@
     int i = 0;
     for (TickClient *client in clients) {
         NSRange range = [[[client name]uppercaseString] rangeOfString:[name uppercaseString]];
-        if(range.length == 0) NSLog(@"not there");
-        else{
+        if(range.length != 0) {
             [searchResults setObject:client forKey:@(i)];
             i++;
         }
-        
     }
     return searchResults;
 }
@@ -203,12 +199,10 @@
     int i = 0;
     for (TickEntry *entry in entries) {
         NSRange range = [[[entry note] uppercaseString] rangeOfString: [note uppercaseString]];
-        if(range.length == 0) NSLog(@"not there");
-        else{
+        if (range.length != 0) {
             [searchResults setObject:entry forKey:@(i)];
             i++;
         }
-        
     }
     return searchResults;
 }
@@ -218,7 +212,7 @@
 - (NSMutableDictionary *) getProjects
 {
     
-    if (!self.user.ProjectData){
+    if (!self.user.ProjectData.count){
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/projects?email=%@@%@.com&password=%@",[self.user company],[self.user username], [self.user company],[self.user password]]];
         
         NSData *webData = [NSData dataWithContentsOfURL:url];

@@ -1,5 +1,5 @@
 //
-//  MHYNCTickClientListViewViewController.m
+//  TickClientListViewViewController.m
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/18/13.

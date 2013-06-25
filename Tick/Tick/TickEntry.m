@@ -1,5 +1,5 @@
 //
-//  MHNYCTickEntry.m
+//  TickEntry.m
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/14/13.

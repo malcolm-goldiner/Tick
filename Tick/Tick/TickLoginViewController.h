@@ -1,5 +1,5 @@
 //
-//  MHNYCTickLoginViewController.h
+//  TickLoginViewController.h
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/9/13.
@@ -34,5 +34,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *atLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dotComLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UIButton *chooseDifferentUserButton;
 
 @end

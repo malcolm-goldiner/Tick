@@ -1,5 +1,5 @@
 //
-//  MHYNCTickLoginViewController.m
+//  TickLoginViewController.m
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/9/13.
@@ -39,19 +39,18 @@
 @implementation TickLoginViewController
 
 #pragma mark - Lazy Instantiation
+
 - (UIApplication *) thisApplication
 {
     if (!_thisApplication) _thisApplication = [UIApplication sharedApplication];
     return  _thisApplication;
 }
 
-
 - (TickDataFetcher *) checker
 {
     if (!_checker) _checker = [[TickDataFetcher alloc] init];
     return _checker;
 }
-
 
 - (TickUser *)user
 {
@@ -79,6 +78,9 @@
         self.passwordField.hidden = YES;
         self.loadingLabel.hidden = YES;
         [self.loginButton setTitle:[NSString stringWithFormat:@"Login %@",[self.user username]] forState:UIControlStateNormal];
+        self.chooseDifferentUserButton.hidden = NO; 
+    } else {
+        [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
     }
 }
 
@@ -89,14 +91,11 @@
 
 - (void) clearEnteredInfo
 {
+    self.user = nil;
     self.usernameField.text = @"";
-    self.user.username = @"";
     self.companyField.text = @"";
-    self.user.company = @"";
     self.passwordField.text = @"";
-    self.user.password = @"";
 }
-
 
 - (IBAction)usernameEntered:(UITextField *)sender {
     [self.user setUsername:sender.text];
@@ -128,6 +127,21 @@
 
 #pragma mark - Buttons
 
+- (IBAction)chooseDifferentUser:(UIButton *)sender {
+    [self clearEnteredInfo];
+    self.usernameField.hidden = NO;
+    self.companyField.hidden = NO;
+    self.user = nil; 
+    self.passwordField.hidden = NO;
+    NSUserDefaults *current = [NSUserDefaults standardUserDefaults];
+    [current removeObjectForKey:@"Tick User"];
+    [current synchronize];
+    sender.hidden = YES;
+    [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
+    self.atLabel.hidden = NO;
+    self.dotComLabel.hidden = NO;
+}
+
 - (IBAction)loginPressed:(UIButton *)sender {
    
     if([self shouldPerformSegueWithIdentifier:@"loginSegue" sender:sender]){
@@ -146,10 +160,6 @@
     [self.loadingLabel setText:@"Loading..."];
     [self.loadingLabel setHidden:NO];
 }
-
-
-
-
 
 #pragma mark - Text Field
 

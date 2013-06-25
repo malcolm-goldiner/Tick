@@ -1,5 +1,5 @@
 //
-//  MHNYCTickAppDelegate.m
+//  TickAppDelegate.m
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/4/13.
@@ -23,9 +23,9 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
-#import "MHNYCTickAppDelegate.h"
+#import "TickAppDelegate.h"
 
-@implementation MHNYCTickAppDelegate
+@implementation TickAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

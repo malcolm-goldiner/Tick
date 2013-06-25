@@ -25,11 +25,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MHNYCTickAppDelegate.h"
+#import "TickAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MHNYCTickAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TickAppDelegate class]));
     }
 }

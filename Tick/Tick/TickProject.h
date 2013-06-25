@@ -1,5 +1,5 @@
 //
-//  MHNYCTickProject.h
+//  TickProject.h
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/12/13.

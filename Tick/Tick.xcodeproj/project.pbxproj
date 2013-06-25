@@ -20,7 +20,7 @@
 		23EB591E175E55ED002788B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EB591D175E55ED002788B4 /* CoreGraphics.framework */; };
 		23EB5924175E55ED002788B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23EB5922175E55ED002788B4 /* InfoPlist.strings */; };
 		23EB5926175E55ED002788B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EB5925175E55ED002788B4 /* main.m */; };
-		23EB592A175E55ED002788B4 /* MHNYCTickAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EB5929175E55ED002788B4 /* MHNYCTickAppDelegate.m */; };
+		23EB592A175E55ED002788B4 /* TickAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23EB5929175E55ED002788B4 /* TickAppDelegate.m */; };
 		23EB592C175E55ED002788B4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EB592B175E55ED002788B4 /* Default.png */; };
 		23EB592E175E55ED002788B4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EB592D175E55ED002788B4 /* Default@2x.png */; };
 		23EB5930175E55ED002788B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23EB592F175E55ED002788B4 /* Default-568h@2x.png */; };
@@ -56,8 +56,8 @@
 		23EB5923175E55ED002788B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23EB5925175E55ED002788B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		23EB5927175E55ED002788B4 /* Tick-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tick-Prefix.pch"; sourceTree = "<group>"; };
-		23EB5928175E55ED002788B4 /* MHNYCTickAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHNYCTickAppDelegate.h; sourceTree = "<group>"; };
-		23EB5929175E55ED002788B4 /* MHNYCTickAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHNYCTickAppDelegate.m; sourceTree = "<group>"; };
+		23EB5928175E55ED002788B4 /* TickAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TickAppDelegate.h; sourceTree = "<group>"; };
+		23EB5929175E55ED002788B4 /* TickAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TickAppDelegate.m; sourceTree = "<group>"; };
 		23EB592B175E55ED002788B4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		23EB592D175E55ED002788B4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		23EB592F175E55ED002788B4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -157,8 +157,8 @@
 			children = (
 				23EB5955175E55FC002788B4 /* XMLDictionary.h */,
 				23EB5956175E55FC002788B4 /* XMLDictionary.m */,
-				23EB5928175E55ED002788B4 /* MHNYCTickAppDelegate.h */,
-				23EB5929175E55ED002788B4 /* MHNYCTickAppDelegate.m */,
+				23EB5928175E55ED002788B4 /* TickAppDelegate.h */,
+				23EB5929175E55ED002788B4 /* TickAppDelegate.m */,
 				23EB5921175E55ED002788B4 /* Tick-Info.plist */,
 				23EB5922175E55ED002788B4 /* InfoPlist.strings */,
 				23EB5925175E55ED002788B4 /* main.m */,
@@ -238,7 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23EB5926175E55ED002788B4 /* main.m in Sources */,
-				23EB592A175E55ED002788B4 /* MHNYCTickAppDelegate.m in Sources */,
+				23EB592A175E55ED002788B4 /* TickAppDelegate.m in Sources */,
 				23EB5936175E55ED002788B4 /* TickProjectListViewController.m in Sources */,
 				23EB5939175E55ED002788B4 /* TickProjectViewController.m in Sources */,
 				23EB5962175E55FC002788B4 /* XMLDictionary.m in Sources */,

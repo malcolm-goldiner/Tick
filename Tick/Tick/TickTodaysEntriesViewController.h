@@ -1,5 +1,5 @@
 //
-//  MHYNCTickTodaysEntriesViewController.h
+//  TickTodaysEntriesViewController.h
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/20/13.

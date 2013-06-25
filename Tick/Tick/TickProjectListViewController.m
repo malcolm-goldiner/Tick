@@ -1,6 +1,6 @@
 
 //
-//  MHNYCTickProjectListViewController.m
+//  TickProjectListViewController.m
 //  Tick
 //
 //  Created by Malcolm Goldiner on 6/4/13.

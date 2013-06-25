@@ -1,6 +1,5 @@
 //
-//  DataFetcher.h
-//  Tick
+//  TickDataFetcher.h
 //
 //  Created by Malcolm Goldiner on 6/4/13.
 //
