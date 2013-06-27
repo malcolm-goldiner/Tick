@@ -10,10 +10,17 @@
 
 @interface TickClientListViewController ()
 @property (nonatomic) BOOL showsCancelButton;
-@property (nonatomic) BOOL searching; 
+@property (nonatomic) BOOL searching;
+@property (strong, nonatomic) UIApplication *thisApplication; 
 @end
 
 @implementation TickClientListViewController
+
+- (UIApplication *) thisApplication
+{
+    if (!_thisApplication) _thisApplication = [UIApplication sharedApplication];
+    return  _thisApplication;
+}
 
 #pragma mark - Search Bar Controller
 
@@ -81,7 +88,18 @@
         if (self.searching) self.user.projectsForClientData = [fetcher getProjectsForClient:[self.user.resultsOfLastSearch objectForKey:@(indexPath.row)]];
         else self.user.projectsForClientData = [fetcher getProjectsForClient:[self.user.ClientData objectForKey:@(indexPath.row)]];
         [[segue destinationViewController] setUser:self.user];
+    }  else if ([[segue identifier] isEqualToString:@"clientTodaySegue"]) {
+        
+        [self.thisApplication setNetworkActivityIndicatorVisible:YES];
+        TickDataFetcher *fetcher = [[TickDataFetcher alloc] init];
+        [fetcher setUser:self.user];
+        self.user.entriesForTodayData = [fetcher getEntriesForToday];
+        [[segue destinationViewController] setUser:self.user];
+        
+        
+        
     }
+    [self.thisApplication setNetworkActivityIndicatorVisible:NO];
 }
 
 

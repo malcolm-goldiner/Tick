@@ -25,7 +25,7 @@
             <objects>
                 <tableViewController title="Master" id="12" customClass="TickProjectListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a Project" id="cJM-uo-jUJ">
@@ -228,7 +228,7 @@
             <objects>
                 <tableViewController id="Crc-i2-ZaN" customClass="TickClientListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="XSV-zA-1Tf">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a Client" id="8uJ-sJ-CQD">
@@ -258,7 +258,15 @@
                             <outlet property="delegate" destination="Crc-i2-ZaN" id="2Hk-we-O5l"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="qt3-tY-hys"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="qt3-tY-hys">
+                        <barButtonItem key="rightBarButtonItem" title="Today's Entries" id="7vu-02-7VI">
+                            <connections>
+                                <segue destination="YVp-4P-pxW" kind="push" identifier="clientTodaySegue" id="2b5-0X-7FF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="8uJ-sJ-CQD" id="ZNn-Ls-aKs"/>
                     </connections>
@@ -272,7 +280,7 @@
             <objects>
                 <viewController title="Detail" id="21" customClass="TickProjectViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XUc-vn-96g">
@@ -437,7 +445,7 @@
             <objects>
                 <tableViewController id="YVp-4P-pxW" customClass="TickTodaysEntriesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LJ3-SY-WgA">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for an entry made today" id="FWL-M6-LSY">
@@ -481,7 +489,7 @@
             <objects>
                 <viewController id="EK1-JF-Z9c" customClass="TickEntryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fsp-6u-bUm">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFb-Ry-5Ez">
@@ -614,88 +622,13 @@
             <point key="canvasLocation" x="2718" y="128"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TickClientListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TickClientListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="TickEntryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TickEntryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="submitUpdatesPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="updateEntryPressed:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="notesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="submitUpdatedButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="updateEntryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="updatedHoursField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="updatedNotesField" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="TickLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TickLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="chooseDifferentUser:" candidateClass="UIButton"/>
-                <relationship kind="action" name="companyEntered:" candidateClass="UITextField"/>
-                <relationship kind="action" name="loginPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="loginTouched:"/>
-                <relationship kind="action" name="passwordEntered:" candidateClass="UITextField"/>
-                <relationship kind="action" name="usernameEntered:" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="atLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="chooseDifferentUserButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="companyField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="dotComLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="TickProjectListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TickProjectListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="TickProjectViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TickProjectViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:"/>
-                <relationship kind="action" name="createEntryButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="submitEntryPressed:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="createEntryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="detailDescriptionView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="entriesTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="hoursField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="notesField" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="notesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="submitEntry" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="TickTodaysEntriesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TickTodaysEntriesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="2b5-0X-7FF"/>
         <segue reference="bXp-aJ-Ux7"/>
     </inferredMetricsTieBreakers>
 </document>
