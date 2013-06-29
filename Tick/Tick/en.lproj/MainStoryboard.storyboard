@@ -101,9 +101,9 @@
                                     <outlet property="delegate" destination="Ar7-du-iRg" id="84C-w2-3FA"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wsM-SR-nk7">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wsM-SR-nk7">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="111" id="Ala-xI-8FM"/>
+                                    <constraint firstAttribute="width" constant="285" id="M5K-Am-9nq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
@@ -112,31 +112,10 @@
                                     <outlet property="delegate" destination="Ar7-du-iRg" id="nV6-W8-MCz"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d5U-fN-jN6">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="116" id="LEA-FI-xTs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="companyEntered:" destination="Ar7-du-iRg" eventType="editingDidEnd" id="lT7-Pa-9O9"/>
-                                    <outlet property="delegate" destination="Ar7-du-iRg" id="edb-p5-zbz"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text=".com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Il-2J-8Bq">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="@" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8n9-vY-1Zz">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="EpK-6q-I1W"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPD-1f-QEY">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="285" id="5sf-JX-JHi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -165,9 +144,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9h-M3-kju">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="183" id="O1l-sL-04d"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Choose Different User">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,36 +159,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Eqg-Rs-mHX" firstAttribute="centerX" secondItem="FXh-eI-42t" secondAttribute="centerX" type="default" id="05X-Dk-iNm"/>
-                            <constraint firstItem="8n9-vY-1Zz" firstAttribute="leading" secondItem="wsM-SR-nk7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="0hG-Z3-3U5"/>
+                            <constraint firstItem="wsM-SR-nk7" firstAttribute="centerX" secondItem="ypL-sn-cqR" secondAttribute="centerX" type="default" id="3zH-AO-HPr"/>
                             <constraint firstItem="ypL-sn-cqR" firstAttribute="leading" secondItem="yid-nW-uSx" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4vR-da-nyF"/>
                             <constraint firstItem="FXh-eI-42t" firstAttribute="top" secondItem="yid-nW-uSx" secondAttribute="top" constant="183" id="6CB-YN-95w"/>
-                            <constraint firstItem="wsM-SR-nk7" firstAttribute="leading" secondItem="yid-nW-uSx" secondAttribute="leading" constant="7" id="Iy1-3M-uF1"/>
-                            <constraint firstItem="d5U-fN-jN6" firstAttribute="baseline" secondItem="wsM-SR-nk7" secondAttribute="baseline" type="default" id="N7m-gP-s8u"/>
+                            <constraint firstItem="LPD-1f-QEY" firstAttribute="trailing" secondItem="ypL-sn-cqR" secondAttribute="trailing" type="default" id="8Zf-uQ-MGo"/>
+                            <constraint firstItem="wsM-SR-nk7" firstAttribute="top" secondItem="yid-nW-uSx" secondAttribute="top" constant="106" id="Mfd-K2-MZq"/>
                             <constraint firstAttribute="bottom" secondItem="G9h-M3-kju" secondAttribute="bottom" constant="58" id="NdR-hd-oUu"/>
                             <constraint firstItem="G9h-M3-kju" firstAttribute="centerX" secondItem="LPD-1f-QEY" secondAttribute="centerX" type="default" id="YK0-NU-x0Y"/>
                             <constraint firstItem="ypL-sn-cqR" firstAttribute="top" secondItem="LPD-1f-QEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="a0P-9G-h5K"/>
-                            <constraint firstItem="8n9-vY-1Zz" firstAttribute="baseline" secondItem="9Il-2J-8Bq" secondAttribute="baseline" type="default" id="aKo-81-vYp"/>
-                            <constraint firstAttribute="trailing" secondItem="9Il-2J-8Bq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aqC-ha-41c"/>
-                            <constraint firstItem="G9h-M3-kju" firstAttribute="leading" secondItem="yid-nW-uSx" secondAttribute="leading" constant="66" id="cfj-VA-QYy"/>
+                            <constraint firstItem="wsM-SR-nk7" firstAttribute="centerX" secondItem="FXh-eI-42t" secondAttribute="centerX" type="default" id="crH-3g-9ax"/>
                             <constraint firstItem="Eqg-Rs-mHX" firstAttribute="top" secondItem="yid-nW-uSx" secondAttribute="top" constant="36" id="d0J-4a-uSQ"/>
-                            <constraint firstItem="d5U-fN-jN6" firstAttribute="leading" secondItem="yid-nW-uSx" secondAttribute="leading" constant="147" id="eiT-EU-j64"/>
-                            <constraint firstAttribute="trailing" secondItem="ypL-sn-cqR" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hOF-Yw-Tf3"/>
-                            <constraint firstItem="wsM-SR-nk7" firstAttribute="top" secondItem="yid-nW-uSx" secondAttribute="top" constant="107" id="ldC-nl-ifD"/>
                             <constraint firstAttribute="trailing" secondItem="LPD-1f-QEY" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="n3m-XU-76W"/>
-                            <constraint firstItem="FXh-eI-42t" firstAttribute="centerX" secondItem="ypL-sn-cqR" secondAttribute="centerX" type="default" id="q74-QR-zav"/>
+                            <constraint firstItem="wsM-SR-nk7" firstAttribute="centerX" secondItem="Eqg-Rs-mHX" secondAttribute="centerX" type="default" id="uns-E9-l3Q"/>
                             <constraint firstItem="G9h-M3-kju" firstAttribute="top" secondItem="ypL-sn-cqR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vsk-NE-V6o"/>
-                            <constraint firstItem="8n9-vY-1Zz" firstAttribute="top" secondItem="yid-nW-uSx" secondAttribute="top" constant="111" id="wCS-Ii-53m"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gc2-7W-X2C">
                         <barButtonItem key="backBarButtonItem" title="Logout" id="a9q-7s-lXz"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="atLabel" destination="8n9-vY-1Zz" id="pqk-xL-hjf"/>
                         <outlet property="chooseDifferentUserButton" destination="G9h-M3-kju" id="Ft5-DI-xfd"/>
-                        <outlet property="companyField" destination="d5U-fN-jN6" id="Efq-vK-Sae"/>
-                        <outlet property="dotComLabel" destination="9Il-2J-8Bq" id="NHt-PO-Ndc"/>
                         <outlet property="loadingLabel" destination="ypL-sn-cqR" id="uOo-g2-YKG"/>
                         <outlet property="loginButton" destination="LPD-1f-QEY" id="GGB-PU-nzf"/>
                         <outlet property="passwordField" destination="FXh-eI-42t" id="yTV-bl-yFX"/>

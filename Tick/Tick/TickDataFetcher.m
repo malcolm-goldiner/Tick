@@ -76,13 +76,36 @@
 }
 
 
+
+- (void)getCompanyName:(NSString *)entered
+{
+    NSRange period = [entered rangeOfString:@"@"];
+    while (period.location != NSNotFound && entered.length > 1){
+        entered = [entered substringFromIndex:period.location + 1];
+        period = [entered rangeOfString:@"@"];
+    }
+    period = [entered rangeOfString:@"."];
+    NSString *temp = entered;
+    while (period.location != NSNotFound && temp.length > 1){
+        if ([[entered substringFromIndex:period.location + 1] rangeOfString:@"."].location == NSNotFound) break;
+        else {
+            temp = [temp substringFromIndex:period.location + 1];
+            period = [temp rangeOfString:@"."];
+        }
+    }
+    NSRange cutoff = [entered rangeOfString:temp];
+    self.user.company = [entered substringToIndex:period.location];
+}
+
+
+
 - (NSMutableDictionary *) getProjectsForClient:(TickClient *)client
 {
     NSMutableDictionary *localDict;
     int i = 0;
     NSMutableDictionary *cleanDict = [[NSMutableDictionary alloc] init];
     if (self.user.ProjectData.count == 0){
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/projects?email=%@@%@.com&password=%@",[self.user company],[self.user username], [self.user company],[self.user password]]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/projects?email=%@&password=%@",[self.user company], [self.user email],[self.user password]]];
         
         NSData *webData = [NSData dataWithContentsOfURL:url];
         
@@ -213,7 +236,7 @@
 {
     
     if (!self.user.ProjectData.count){
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/projects?email=%@@%@.com&password=%@",[self.user company],[self.user username], [self.user company],[self.user password]]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/projects?email=%@&password=%@",[self.user company],[self.user email],[self.user password]]];
         
         NSData *webData = [NSData dataWithContentsOfURL:url];
         
@@ -281,13 +304,14 @@
 {
     
     if(!self.user.firstName){
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/users?email=%@@%@.com&password=%@",[self.user company],[self.user username], [self.user company],[self.user password]]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/users?email=%@&password=%@",[self.user company],[self.user email], [self.user password]]];
         
         NSData *webData = [NSData dataWithContentsOfURL:url];
         NSMutableDictionary *localDict = [[NSDictionary dictionaryWithXMLData:webData] mutableCopy];
         localDict = [localDict objectForKey:@"user"];
         self.user.firstName = [localDict objectForKey:@"first_name"];
         self.user.lastName = [localDict objectForKey:@"last_name"];
+        self.user.fullName = [self.user.firstName stringByAppendingFormat:@" %@",self.user.lastName]; 
     }
     
     return [NSString stringWithFormat:@"%@ %@", [self.user firstName], [self.user lastName]];
@@ -298,14 +322,14 @@
     NSString *note = [entry note];
     NSRange space = [note rangeOfString:@" "];
     while (space.length != 0) {
-        note = [NSString stringWithFormat:@"%@%@%@",[note substringToIndex:space.location],@"+",[note substringFromIndex:space.location+space.length]];
+        note = [NSString stringWithFormat:@"%@.%@%@",[note substringToIndex:space.location],@"+",[note substringFromIndex:space.location+space.length]];
         space = [note rangeOfString:@" "];
     }
     
     
     NSString *date = [[[NSDate date] description] substringToIndex:10];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/create_entry?email=%@@%@.com&password=%@&task_id=%i&hours=%g&date=%@&notes=%@",[entry.user company], [entry.user username], [entry.user company], [entry.user password], [entry.project taskID], [entry hours], date, note]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/create_entry?email=%@&password=%@&task_id=%i&hours=%g&date=%@&notes=%@",[entry.user company], [entry.user email],  [entry.user password], [entry.project taskID], [entry hours], date, note]];
                       
     NSData *webData = [NSData dataWithContentsOfURL:url];
     if(webData){
@@ -318,7 +342,7 @@
 {
   NSString *date = [[[NSDate date] description] substringToIndex:10];
 
-  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/entries?email=%@@%@.com&password=%@&start_date=%@&end_date=%@&project_id=%i",[self.user company], [self.user username], [self.user company], [self.user password], [project createdOn], date, [project projectID]]];
+  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/entries?email=%@&password=%@&start_date=%@&end_date=%@&project_id=%i",[self.user company], [self.user email],  [self.user password], [project createdOn], date, [project projectID]]];
     
    
 
@@ -365,11 +389,12 @@
 
 - (BOOL) credentialsAreCorrect
 {
+    [self getCompanyName:self.user.email];
     [self getUserFullName];
     [self getClients]; 
     if(self.user.ClientData.count){
         NSUserDefaults *current = [NSUserDefaults standardUserDefaults];
-        NSArray *userInfo = @[self.user.username, self.user.company, self.user.password];
+        NSArray *userInfo = @[self.user.email, self.user.company, self.user.password];
         [current setObject:userInfo forKey:@"Tick User"];
         [current synchronize];
          return YES;
@@ -385,7 +410,7 @@
       NSString *date = [[[NSDate date] description] substringToIndex:10];
  
     
-      NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/entries?email=%@@%@.com&password=%@&start_date=%@&end_date=%@",[self.user company], [self.user username], [self.user company], [self.user password], date, date]];
+      NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@.tickspot.com/api/entries?email=%@&password=%@&start_date=%@&end_date=%@",[self.user company], [self.user email], [self.user password], date, date]];
     
     
     
@@ -441,11 +466,11 @@
     NSString *note = [entry note];
     NSRange space = [note rangeOfString:@" "];
     while (space.length != 0) {
-        note = [NSString stringWithFormat:@"%@%@%@",[note substringToIndex:space.location],@"+",[note substringFromIndex:space.location+space.length]];
+        note = [NSString stringWithFormat:@"%@.%@%@",[note substringToIndex:space.location],@"+",[note substringFromIndex:space.location+space.length]];
          space = [note rangeOfString:@" "];
     }
     
-    NSString *url = [NSString stringWithFormat:@"https://%@.tickspot.com/api/update_entry?email=%@@%@.com&password=%@&id=%i&notes=%@&hours=%g",[self.user company], [self.user username], [self.user company], [self.user password], [entry ID],note,[entry hours]];
+    NSString *url = [NSString stringWithFormat:@"https://%@.tickspot.com/api/update_entry?email=%@&password=%@&id=%i&notes=%@&hours=%g",[self.user company], [self.user email], [self.user password], [entry ID],note,[entry hours]];
   
 	
     NSData *Data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];

@@ -68,16 +68,13 @@
     NSUserDefaults *current = [NSUserDefaults standardUserDefaults];
     if ([current objectForKey:@"Tick User"]) {
         NSArray *userInfo = [current objectForKey:@"Tick User"];
-        self.user.username = userInfo[0];
-        self.atLabel.hidden = YES;
-        self.dotComLabel.hidden = YES; 
+        self.user.email = userInfo[0];
         self.user.company = userInfo[1];
         self.user.password = userInfo[2];
         self.usernameField.hidden = YES;
-        self.companyField.hidden = YES;
         self.passwordField.hidden = YES;
         self.loadingLabel.hidden = YES;
-        [self.loginButton setTitle:[NSString stringWithFormat:@"Login %@",[self.user username]] forState:UIControlStateNormal];
+        [self.loginButton setTitle:[NSString stringWithFormat:@"Login %@",[self.user email]] forState:UIControlStateNormal];
         self.chooseDifferentUserButton.hidden = NO; 
     } else {
         [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
@@ -93,17 +90,11 @@
 {
     self.user = nil;
     self.usernameField.text = @"";
-    self.companyField.text = @"";
     self.passwordField.text = @"";
 }
 
 - (IBAction)usernameEntered:(UITextField *)sender {
-    [self.user setUsername:sender.text];
-}
-
-- (IBAction)companyEntered:(UITextField *)sender {
-    [self.user setCompany:sender.text];
-    
+    [self.user setEmail:sender.text];
 }
 
 - (IBAction)passwordEntered:(UITextField *) sender {
@@ -130,7 +121,6 @@
 - (IBAction)chooseDifferentUser:(UIButton *)sender {
     [self clearEnteredInfo];
     self.usernameField.hidden = NO;
-    self.companyField.hidden = NO;
     self.user = nil; 
     self.passwordField.hidden = NO;
     NSUserDefaults *current = [NSUserDefaults standardUserDefaults];
@@ -138,8 +128,6 @@
     [current synchronize];
     sender.hidden = YES;
     [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
-    self.atLabel.hidden = NO;
-    self.dotComLabel.hidden = NO;
 }
 
 - (IBAction)loginPressed:(UIButton *)sender {
@@ -185,11 +173,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if([textField isEqual:self.usernameField]){
-        [self.companyField becomeFirstResponder];
-    } else if ([textField isEqual:self.companyField]) {
-        [self.passwordField becomeFirstResponder];
-    }
+    if([textField isEqual:self.usernameField]) [self.passwordField becomeFirstResponder];
     [textField resignFirstResponder];
     return YES;
 }

@@ -43,7 +43,8 @@
 - (NSMutableDictionary *) searchForProjectWithName:(NSString *)prefix;
 - (NSMutableDictionary *) searchForClientWithName:(NSString *)prefix;
 - (NSMutableDictionary *) searchForEntryWithNote:(NSString *)note fromView:(NSString *)view;
-- (BOOL)credentialsAreCorrect; 
+- (BOOL)credentialsAreCorrect;
+- (void)getCompanyName:(NSString *)entered;
 
 
 

@@ -28,12 +28,14 @@
 @interface TickLoginViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (weak, nonatomic) IBOutlet UITextField *companyField;
+//@property (weak, nonatomic) IBOutlet UITextField *companyField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
+/*
 @property (weak, nonatomic) IBOutlet UILabel *atLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dotComLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
+ */
 @property (weak, nonatomic) IBOutlet UIButton *chooseDifferentUserButton;
 
 @end
