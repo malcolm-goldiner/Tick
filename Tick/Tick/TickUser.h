@@ -28,13 +28,11 @@
 @interface TickUser : NSObject
 
 
-@property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *email; 
 @property (strong, nonatomic) NSString *firstName;
 @property (strong, nonatomic) NSString *lastName; 
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *company;
-@property (strong, nonatomic) NSString *webAddressType;
 @property (strong, nonatomic) NSMutableDictionary *ProjectData;
 @property (strong, nonatomic) NSMutableDictionary *ClientData;
 @property (strong, nonatomic) NSMutableDictionary *entriesForProjectData;
